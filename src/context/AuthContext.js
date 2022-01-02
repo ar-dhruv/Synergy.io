@@ -1,5 +1,5 @@
 import { createContext, useReducer, useEffect } from "react";
-import { projectAuth } from "../firbase/config";
+import { projectAuth } from "../firebase/config";
 
 export const AuthContext = createContext();
 
@@ -31,9 +31,6 @@ export const AuthContextProvider = ({ children }) => {
       unsub();
     });
   }, []);
-
-  console.log("AuthContext state:", state);
-
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>
       {children}
