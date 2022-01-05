@@ -12,7 +12,7 @@ export default function Signup() {
     <form className="auth-form">
       <h2>Sign up</h2>
       <label>
-        <span>email:</span>
+        <span>Email:</span>
         <input
           required
           type="email"
@@ -21,7 +21,7 @@ export default function Signup() {
         />
       </label>
       <label>
-        <span>password:</span>
+        <span>Password:</span>
         <input
           required
           type="password"
@@ -30,7 +30,7 @@ export default function Signup() {
         />
       </label>
       <label>
-        <span>display name:</span>
+        <span>Display Name:</span>
         <input
           required
           type="text"
@@ -39,7 +39,7 @@ export default function Signup() {
         />
       </label>
       <label>
-        <span>profile thumbnail:</span>
+        <span>Display Picture:</span>
         <input required type="file" />
       </label>
       <button className="btn">Sign up</button>
