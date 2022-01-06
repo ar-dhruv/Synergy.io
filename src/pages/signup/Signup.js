@@ -9,14 +9,25 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [thumbnail, setThumbnail] = useState(null);
+  const [thumbnailError, setThumbnailError] = useState(null);
+
+  const handleFileChange = (e) => {
+    setThumbnail(null);
+    let selected = e.target.files[0]; //.FILES RETURNS AN ARRAY OF ALL THE SELECTED FILES BUT WE ALLOW ONLY ONE PICTURE FOR THE DP SO FILES[0]
+    console.log(selected);
+
+    if(!selected){
+
+    }
+  };
 
   return (
-    <div class="grid-container">
-      <div class="grid-child">
+    <div className="grid-container">
+      <div className="grid-child">
         <img src={signupImage} alt="image" />
       </div>
 
-      <div class="grid-child">
+      <div className="grid-child">
         <form className="auth-form">
           <h2>Create an account.</h2>
           <label>
@@ -48,7 +59,7 @@ export default function Signup() {
           </label>
           <label>
             <span>Display Picture:</span>
-            <input required type="file" />
+            <input required type="file" onChange={handleFileChange} />
           </label>
           <button className="btn">Sign up</button>
         </form>
