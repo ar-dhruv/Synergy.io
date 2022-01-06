@@ -11,14 +11,38 @@ export default function Signup() {
   const [thumbnail, setThumbnail] = useState(null);
   const [thumbnailError, setThumbnailError] = useState(null);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(email, password, displayName, thumbnail);
+  };
+
   const handleFileChange = (e) => {
     setThumbnail(null);
     let selected = e.target.files[0]; //.FILES RETURNS AN ARRAY OF ALL THE SELECTED FILES BUT WE ALLOW ONLY ONE PICTURE FOR THE DP SO FILES[0]
     console.log(selected);
 
-    if(!selected){
-
+    //ERROR IF YOU DONT SELECT A DISPLAY PICTURE
+    if (!selected) {
+      setThumbnailError("Please select your Avatar");
+      return;
     }
+
+    //ERROR IF THE SELECTED FILE IS NOT A IMAGE FILE
+    if (!selected.type.includes("image")) {
+      setThumbnailError("Selected file must be an image");
+      return;
+    }
+
+    //ERROR FOR SIZE OF THE FILE THAT IS SELECTED
+    if (selected.size > 250000) {
+      setThumbnailError("Image file size must be less than 250kb");
+      return;
+    }
+
+    //WE REACH HERE WHEN THERE IS NO ERROR i.e VALID IMAGE FILE
+    setThumbnailError(null);
+    setThumbnail(selected);
+    console.log("thumbnail updated");
   };
 
   return (
@@ -28,7 +52,7 @@ export default function Signup() {
       </div>
 
       <div className="grid-child">
-        <form className="auth-form">
+        <form className="auth-form" onSubmit={handleSubmit}>
           <h2>Create an account.</h2>
           <label>
             <input
@@ -60,6 +84,7 @@ export default function Signup() {
           <label>
             <span>Display Picture:</span>
             <input required type="file" onChange={handleFileChange} />
+            {thumbnailError && <div className="error">{thumbnailError}</div>}
           </label>
           <button className="btn">Sign up</button>
         </form>
