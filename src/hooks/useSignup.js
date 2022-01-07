@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { projectAuth, projectStorage } from "../firbase/config";
+import { projectAuth, projectStorage } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
 
 export const useSignup = () => {
