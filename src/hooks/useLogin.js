@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { projectAuth } from "../firbase/config";
+import { projectAuth,projectFirestore } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
 
 export const useLogin = () => {
@@ -16,8 +16,14 @@ export const useLogin = () => {
     try {
       const res = await projectAuth.signInWithEmailAndPassword(email, password);
 
-      //DISPATCHING THE LOGIN ACTION & USE THE RESPONSE.USER AS THE PAYLOAD 
-      dispatch({ type: "LOGIN" , payload : res.user});
+      //UPDATE THE ONLINE STATUS OF THE USER AFTER HE LOGGED IN
+      await projectFirestore
+        .collection("users")
+        .doc(res.user.uid)
+        .update({ online: true });
+
+      //DISPATCHING THE LOGIN ACTION & USE THE RESPONSE.USER AS THE PAYLOAD
+      dispatch({ type: "LOGIN", payload: res.user });
 
       //UPDATE STATE
       if (!isCancelled) {
