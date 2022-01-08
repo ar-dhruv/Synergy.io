@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { projectAuth } from "../firbase/config";
+import { projectAuth, projectFirestore } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
 
 export const useLogout = () => {
   const [isCancelled, setIsCancelled] = useState(false); //STATES FOR CLEAN-UP FUNCTION
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(null);
-  const { dispatch } = useAuthContext();
+  const { dispatch, user } = useAuthContext();
 
   const logout = async () => {
     setError(null);
@@ -14,6 +14,15 @@ export const useLogout = () => {
 
     //TRYING TO LOGOUT THE USER
     try {
+
+      //WE CHANGE BACK THE ONLINE STATUS OF USER TO FALSE BEFORE LOGGING THEM OFF
+      //THIS IS BECAUSE OF THE FIRESTORE RULES...THAT IS USER WILL NOT BE ALLOWED TO CHANGE ITS ANY DATA IF HE'S LOGGED OUT SO CAHNGE ONLINE STATUS BEFORE LOGGING OUT
+      const { uid } = user;
+      await projectFirestore
+        .collection("users")
+        .doc(uid)
+        .update({ online: false });
+
       await projectAuth.signOut();
 
       //DISPATCHING THE LOGOUT ACTION & WE DONT NEED ANY PAYLOAD FOR LOGGING OUT JUST THE ACTION TYPE
