@@ -7,15 +7,17 @@
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   background: #fff;
 }
+
+
 .grid-container {
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 }
-.grid-child img{
+.grid-child img {
   width: 500px;
   margin-top: 100px;
   margin-bottom: 20px;
 }
-.grid-child h2{
+.grid-child h2 {
   color: #8d69f1;
 }

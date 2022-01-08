@@ -3,8 +3,7 @@ import { useLogin } from "../../hooks/useLogin";
 
 //STYLES
 import "./Login.css";
-import loginImage from "../../assets/signup.svg";
-
+import loginImage from "../../assets/login.svg";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -19,12 +18,8 @@ export default function Login() {
   return (
     <div className="grid-container">
       <div className="grid-child">
-        <img src={loginImage} alt="image" />
-      </div>
-
-      <div className="grid-child">
         <form className="auth-form" onSubmit={handleSubmit}>
-          <h2>Create an account.</h2>
+          <h2>Welcome Back !</h2>
           <label>
             <input
               placeholder="Email"
@@ -43,7 +38,7 @@ export default function Login() {
               value={password}
             />
           </label>
-          {!isPending && <button className="btn">Sign up</button>}
+          {!isPending && <button className="btn">Login</button>}
           {isPending && (
             <button className="btn" disabled>
               loading...
@@ -51,6 +46,9 @@ export default function Login() {
           )}
           {error && <div className="error">{error}</div>}
         </form>
+      </div>
+      <div className="grid-child-login">
+        <img src={loginImage} alt="image" />
       </div>
     </div>
   );

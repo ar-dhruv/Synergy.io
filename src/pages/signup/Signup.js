@@ -76,7 +76,7 @@ export default function Signup() {
           </label>
           <label>
             <input
-              placeholder="Display Name"
+              placeholder="Username"
               required
               type="text"
               onChange={(e) => setDisplayName(e.target.value)}

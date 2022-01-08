@@ -11,9 +11,9 @@
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );
   }
-  .grid-child img{
+  .grid-child-login img{
     width: 500px;
-    margin-top: 100px;
+    /* margin-top: 100px; */
     margin-bottom: 20px;
   }
   .grid-child h2{
