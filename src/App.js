@@ -37,10 +37,12 @@ function App() {
                 {user && <Project />}
               </Route>
               <Route path="/login">
-                <Login />
+                {user && <Redirect to="/" />}
+                {!user && <Login />}
               </Route>
               <Route path="/signup">
-                <Signup />
+              {user && <Redirect to="/" />}
+                {!user && <Signup />}
               </Route>
             </Switch>
           </div>
