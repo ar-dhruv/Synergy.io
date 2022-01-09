@@ -25,13 +25,16 @@ function App() {
             <Navbar />
             <Switch>
               <Route exact path="/">
-                <Dashboard />
+                {!user && <Redirect to="/login" />}
+                {user && <Dashboard />}
               </Route>
               <Route path="/create">
-                <Create />
+                {!user && <Redirect to="/login" />}
+                {user && <Create />}
               </Route>
               <Route path="/project/:id">
-                <Project />
+                {!user && <Redirect to="/login" />}
+                {user && <Project />}
               </Route>
               <Route path="/login">
                 <Login />
