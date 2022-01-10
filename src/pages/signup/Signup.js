@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
+import Animation from "../../components/Animation";
+
 
 //STYLES
 import "./Signup.css";
@@ -48,55 +50,59 @@ export default function Signup() {
   };
 
   return (
-    <div className="grid-container">
-      <div className="grid-child">
-        <img src={signupImage} alt="image" />
-      </div>
+    <>
+      <Animation/>
+      <div className="grid-container">
+        <div className="grid-child">
+          <img src={signupImage} alt="image" />
+        </div>
 
-      <div className="grid-child">
-        <form className="auth-form" onSubmit={handleSubmit}>
-          <h2>Create an account.</h2>
-          <label>
-            <input
-              placeholder="Email"
-              required
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-          </label>
-          <label>
-            <input
-              placeholder="Password"
-              required
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-          </label>
-          <label>
-            <input
-              placeholder="Username"
-              required
-              type="text"
-              onChange={(e) => setDisplayName(e.target.value)}
-              value={displayName}
-            />
-          </label>
-          <label>
-            <span>Display Picture:</span>
-            <input required type="file" onChange={handleFileChange} />
-            {thumbnailError && <div className="error">{thumbnailError}</div>}
-          </label>
-          {!isPending && <button className="btn">Sign up</button>}
-          {isPending && (
-            <button className="btn" disabled>
-              loading...
-            </button>
-          )}
-          {error && <div className="error">{error}</div>}
-        </form>
+        <div className="grid-child">
+          <form className="auth-form" onSubmit={handleSubmit}>
+            <h2>Create an account.</h2>
+            <label>
+              <input
+                placeholder="Email"
+                required
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+            </label>
+            <label>
+              <input
+                placeholder="Password"
+                required
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+              />
+            </label>
+            <label>
+              <input
+                placeholder="Username"
+                required
+                type="text"
+                onChange={(e) => setDisplayName(e.target.value)}
+                value={displayName}
+              />
+            </label>
+            <label>
+              <span>Display Picture:</span>
+              <input required type="file" onChange={handleFileChange} />
+              {thumbnailError && <div className="error">{thumbnailError}</div>}
+            </label>
+            {!isPending && <button className="btn">Sign up</button>}
+            {isPending && (
+              <button className="btn" disabled>
+                loading...
+              </button>
+            )}
+            {error && <div className="error">{error}</div>}
+          </form>
+        </div>
       </div>
-    </div>
+      
+    </>
   );
 }
