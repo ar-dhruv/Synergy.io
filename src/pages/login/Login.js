@@ -18,7 +18,7 @@ export default function Login() {
 
   return (
     <>
-      
+      <Animation />
       <div className="grid-container">
         <div className="grid-child">
           <form className="auth-form-login" onSubmit={handleSubmit}>
