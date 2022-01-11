@@ -65,6 +65,7 @@ export default function Animation() {
             random: false,
             speed: 3,
             straight: false,
+            bounce: false,
           },
           number: {
             density: {
