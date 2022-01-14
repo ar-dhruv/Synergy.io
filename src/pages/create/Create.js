@@ -12,7 +12,7 @@ const categories = [
 ];
 
 export default function Create() {
-  //FORM FIELDS STATES
+  //ADD PROJECT FORM FIELDS STATES
   const [name, setName] = useState("");
   const [details, setDetails] = useState("");
   const [dueDate, setDueDate] = useState("");
