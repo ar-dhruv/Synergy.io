@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Select from "react-select";
 import { useCollection } from "../../hooks/useCollection";
+import CreateAnimation from "../../components/CreateAnimation";
 
 //STYLES
 import "./Create.css";
@@ -41,55 +42,58 @@ export default function Create() {
   };
 
   return (
-    <div className="create-form">
-      <h2 className="page-title">Create a new Project</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <span>Project name:</span>
-          <input
-            required
-            type="text"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          />
-        </label>
-        <label>
-          <span>Project details:</span>
-          <textarea
-            required
-            type="text"
-            onChange={(e) => setDetails(e.target.value)}
-            value={details}
-          ></textarea>
-        </label>
-        <label>
-          <span>Set due date:</span>
-          <input
-            required
-            type="date"
-            onChange={(e) => setDueDate(e.target.value)}
-            value={dueDate}
-          />
-        </label>
+    <>
+      <CreateAnimation />
+      <div className="create-form">
+        <h2 className="page-title">Create a new Project</h2>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <span>Project name:</span>
+            <input
+              required
+              type="text"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            />
+          </label>
+          <label>
+            <span>Project details:</span>
+            <textarea
+              required
+              type="text"
+              onChange={(e) => setDetails(e.target.value)}
+              value={details}
+            ></textarea>
+          </label>
+          <label>
+            <span>Set due date:</span>
+            <input
+              required
+              type="date"
+              onChange={(e) => setDueDate(e.target.value)}
+              value={dueDate}
+            />
+          </label>
 
-        <label>
-          <span>Project category:</span>
-          <Select
-            options={categories}
-            onChange={(option) => setCategory(option)}
-          />
-        </label>
-        <label>
-          <span>Assign to:</span>
-          <Select
-            options={users}
-            onChange={(option) => setAssignedUsers(option)}
-            isMulti
-          />
-        </label>
+          <label>
+            <span>Project category:</span>
+            <Select
+              options={categories}
+              onChange={(option) => setCategory(option)}
+            />
+          </label>
+          <label>
+            <span>Assign to:</span>
+            <Select
+              options={users}
+              onChange={(option) => setAssignedUsers(option)}
+              isMulti
+            />
+          </label>
 
-        <button className="btn">Add Project</button>
-      </form>
-    </div>
+          <button className="btn">Add Project</button>
+        </form>
+      </div>
+    </>
   );
 }
