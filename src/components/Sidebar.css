@@ -13,10 +13,12 @@
   }
   .sidebar .user {
     font-weight: bold;
+    font-size: 1.4em;
     text-align: center;
     letter-spacing: 1px;
     padding: 40px 30px;
     border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 0;
   }
   .sidebar .links {
     margin-top: 80px;
