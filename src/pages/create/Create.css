@@ -1,5 +1,5 @@
 .create-form {
-  max-width: 600px;
+  max-width: 700px;
   padding-bottom: 50px;
   background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -10,4 +10,17 @@
   /* // */
   margin: 10px auto;
   padding: 40px;
+  padding-top: 20px;
+  transform: translateY(-50px);
+}
+.page-title-create{
+  font-size: 1.5em;
+}
+.project-head{
+  font-size: 2em;
+  font-weight: bold;
+  color: #8d69f1;
+}
+.create-textarea{
+  min-height: 100px;
 }

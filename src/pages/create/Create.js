@@ -45,11 +45,12 @@ export default function Create() {
     <>
       <CreateAnimation />
       <div className="create-form">
-        <h2 className="page-title">Create a new Project</h2>
+        <span className="page-title-create">Create a new </span>
+        <span className="project-head">Project</span>
         <form onSubmit={handleSubmit}>
           <label>
-            <span>Project name:</span>
             <input
+              placeholder="Project Name"
               required
               type="text"
               onChange={(e) => setName(e.target.value)}
@@ -57,8 +58,9 @@ export default function Create() {
             />
           </label>
           <label>
-            <span>Project details:</span>
             <textarea
+            className="create-textarea"
+              placeholder="Project Details"
               required
               type="text"
               onChange={(e) => setDetails(e.target.value)}
@@ -66,8 +68,9 @@ export default function Create() {
             ></textarea>
           </label>
           <label>
-            <span>Set due date:</span>
             <input
+              placeholder="Due Date"
+              onfocus="(this.type='date')"
               required
               type="date"
               onChange={(e) => setDueDate(e.target.value)}
