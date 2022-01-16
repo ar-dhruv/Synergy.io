@@ -30,7 +30,7 @@ export default function Animation() {
             value: 15,
           },
           opacity: {
-            value: 0.6,
+            value: 0.5,
           },
           shape: {
             type: "circle",

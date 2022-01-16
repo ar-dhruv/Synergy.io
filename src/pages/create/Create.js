@@ -49,8 +49,8 @@ export default function Create() {
         <span className="project-head">Project</span>
         <form onSubmit={handleSubmit}>
           <label>
+          <span className = "label-span">Project name:</span>
             <input
-              placeholder="Project Name"
               required
               type="text"
               onChange={(e) => setName(e.target.value)}
@@ -58,9 +58,9 @@ export default function Create() {
             />
           </label>
           <label>
+          <span className = "label-span">Project Details:</span>
             <textarea
             className="create-textarea"
-              placeholder="Project Details"
               required
               type="text"
               onChange={(e) => setDetails(e.target.value)}
@@ -68,8 +68,8 @@ export default function Create() {
             ></textarea>
           </label>
           <label>
+          <span className = "label-span">Due Date:</span>
             <input
-              placeholder="Due Date"
               onfocus="(this.type='date')"
               required
               type="date"
@@ -79,14 +79,14 @@ export default function Create() {
           </label>
 
           <label>
-            <span>Project category:</span>
+            <span className = "label-span">Project category:</span>
             <Select
               options={categories}
               onChange={(option) => setCategory(option)}
             />
           </label>
           <label>
-            <span>Assign to:</span>
+            <span className = "label-span">Assign to:</span>
             <Select
               options={users}
               onChange={(option) => setAssignedUsers(option)}

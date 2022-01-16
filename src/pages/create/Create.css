@@ -24,3 +24,8 @@
 .create-textarea{
   min-height: 100px;
 }
+.label-span{
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #8d69f1;
+}
