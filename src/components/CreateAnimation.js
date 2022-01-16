@@ -17,26 +17,26 @@ export default function Animation() {
             value: "#8d69f1",
           },
           move: {
-            direction: "bottom",
+            direction: "random",
             enable: true,
             outModes: "out",
-            speed: 2,
+            speed: 4,
           },
           number: {
             density: {
               enable: true,
               area: 800,
             },
-            value: 400,
+            value: 15,
           },
           opacity: {
-            value: 0.4,
+            value: 0.6,
           },
           shape: {
             type: "circle",
           },
           size: {
-            value: 10,
+            value: 100,
           },
           wobble: {
             enable: true,
