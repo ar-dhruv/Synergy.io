@@ -24,6 +24,8 @@ export default function Create() {
   const [dueDate, setDueDate] = useState("");
   const [category, setCategory] = useState("");
   const [assignedUsers, setAssignedUsers] = useState([]);
+  //ERROR STATE
+  const [formError , setFormError] = useState(null);
 
   //WE TAKE THE USER DOCUMENT FROM THE DATABASE & MAP IT & RETURN A OBJECT FOR EACH USER FOR THE LABEL AND THE VALUE OF THE SELECT DROPDOWN OPTIONS
   //USE EFFECT BECAUSE EVERYTIME THERE IS A CHANGE IN THE USERS USEEEFECT WILL RE-RENDER AND HENCE UPDATING THE USER THAT CAN BE ASSIGNED.
@@ -38,6 +40,10 @@ export default function Create() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFormError(null);
+
+    
+
     console.log(name, details, dueDate, category.value, assignedUsers);
   };
 
