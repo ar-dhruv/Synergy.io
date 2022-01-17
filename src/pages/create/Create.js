@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Select from "react-select";
 import { useCollection } from "../../hooks/useCollection";
 import CreateAnimation from "../../components/CreateAnimation";
+import { timestamp } from "../../firebase/config";
+import {useAuthContext} from "../../hooks/useAuthContext"
 
 //STYLES
 import "./Create.css";
@@ -17,6 +19,7 @@ export default function Create() {
   const { documents } = useCollection("users");
 
   const [users, setUsers] = useState([]); //STATE FOR THE USER DOCUMENTS WE ARE GETTING FROM THE DATABASE FOR USING IN THE SELECT DROPDOWN OF ASSIGNED TO
+  const {user} = useAuthContext();
 
   //ADD PROJECT FORM FIELDS STATES
   const [name, setName] = useState("");
@@ -51,6 +54,15 @@ export default function Create() {
       setFormError("Please assign the project to atleast 1 user");
       return;
     }
+
+    //NEW PROJECT OBJECT TO BE SAVED IN THE FIREBASE COLLECTION
+    const project = {
+      name,
+      details,
+      category: category.value,
+      dueDate: timestamp.fromDate(new Date(dueDate)),
+      comments : []
+    };
 
     console.log(name, details, dueDate, category.value, assignedUsers);
   };
