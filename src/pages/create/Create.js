@@ -25,7 +25,7 @@ export default function Create() {
   const [category, setCategory] = useState("");
   const [assignedUsers, setAssignedUsers] = useState([]);
   //ERROR STATE
-  const [formError , setFormError] = useState(null);
+  const [formError, setFormError] = useState(null);
 
   //WE TAKE THE USER DOCUMENT FROM THE DATABASE & MAP IT & RETURN A OBJECT FOR EACH USER FOR THE LABEL AND THE VALUE OF THE SELECT DROPDOWN OPTIONS
   //USE EFFECT BECAUSE EVERYTIME THERE IS A CHANGE IN THE USERS USEEEFECT WILL RE-RENDER AND HENCE UPDATING THE USER THAT CAN BE ASSIGNED.
@@ -42,7 +42,15 @@ export default function Create() {
     e.preventDefault();
     setFormError(null);
 
-    
+    if (!category) {
+      setFormError("Please select a Project Category");
+      return;
+    }
+
+    if (assignedUsers.length < 1) {
+      setFormError("Please assign the project to atleast 1 user");
+      return;
+    }
 
     console.log(name, details, dueDate, category.value, assignedUsers);
   };
@@ -55,7 +63,7 @@ export default function Create() {
         <span className="project-head">Project</span>
         <form onSubmit={handleSubmit}>
           <label>
-          <span className = "label-span">Project name:</span>
+            <span className="label-span">Project name:</span>
             <input
               required
               type="text"
@@ -64,9 +72,9 @@ export default function Create() {
             />
           </label>
           <label>
-          <span className = "label-span">Project Details:</span>
+            <span className="label-span">Project Details:</span>
             <textarea
-            className="create-textarea"
+              className="create-textarea"
               required
               type="text"
               onChange={(e) => setDetails(e.target.value)}
@@ -74,7 +82,7 @@ export default function Create() {
             ></textarea>
           </label>
           <label>
-          <span className = "label-span">Due Date:</span>
+            <span className="label-span">Due Date:</span>
             <input
               onfocus="(this.type='date')"
               required
@@ -85,14 +93,14 @@ export default function Create() {
           </label>
 
           <label>
-            <span className = "label-span">Project category:</span>
+            <span className="label-span">Project category:</span>
             <Select
               options={categories}
               onChange={(option) => setCategory(option)}
             />
           </label>
           <label>
-            <span className = "label-span">Assign to:</span>
+            <span className="label-span">Assign to:</span>
             <Select
               options={users}
               onChange={(option) => setAssignedUsers(option)}
@@ -101,6 +109,8 @@ export default function Create() {
           </label>
 
           <button className="btn">Add Project</button>
+
+          {formError && <p className="error">{formError}</p>}
         </form>
       </div>
     </>
