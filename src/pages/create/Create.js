@@ -59,7 +59,7 @@ export default function Create() {
     const createdBy = {
       displayName: user.displayName,
       photoURL: user.photoURL,
-      id: user.id,
+      id: user.uid,
     };
 
     //ASSIGNED USERS OBJECT
@@ -67,7 +67,7 @@ export default function Create() {
       return {
         displayName: u.value.displayName,
         photoURL: u.value.photoURL,
-        id: u.value.uid,
+        id: u.value.id,
       };
     });
 
@@ -82,7 +82,7 @@ export default function Create() {
       assignedUsersList,
     };
 
-    console.log(name, details, dueDate, category.value, assignedUsers);
+    console.log(project);
   };
 
   return (
