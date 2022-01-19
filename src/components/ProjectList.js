@@ -5,7 +5,7 @@ import Avatar from "./Avatar"
 import "./ProjectList.css";
 export default function ProjectList({ projects }) {
   return (
-    <div>
+    <div className="project-list">
       {projects.length === 0 && <p>No Projects to display</p>}
       {projects.map((project) => (
         <Link to={`/projects/${project.id}`} key={project.id}>
