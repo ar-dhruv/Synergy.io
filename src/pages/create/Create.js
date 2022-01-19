@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Select from "react-select";
 import { useCollection } from "../../hooks/useCollection";
-import CreateAnimation from "../../components/CreateAnimation";
+import Animation from "../../components/Animation";
 import { timestamp } from "../../firebase/config";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useFirestore } from "../../hooks/useFireStore";
@@ -94,7 +94,7 @@ export default function Create() {
 
   return (
     <>
-      <CreateAnimation />
+      <Animation />
       <div className="create-form">
         <span className="page-title-create">Create a new </span>
         <span className="project-head">Project</span>

@@ -1,10 +1,10 @@
 .create-form {
-  max-width: 700px;
+  max-width: 600px;
   padding-bottom: 50px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   /* // */
@@ -13,18 +13,18 @@
   padding-top: 20px;
   transform: translateY(-50px);
 }
-.page-title-create{
+.page-title-create {
   font-size: 1.5em;
 }
-.project-head{
+.project-head {
   font-size: 2em;
   font-weight: bold;
   color: #8d69f1;
 }
-.create-textarea{
+.create-textarea {
   min-height: 100px;
 }
-.label-span{
+.label-span {
   font-size: 1.2em;
   font-weight: 500;
   color: #8d69f1;
