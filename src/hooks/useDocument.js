@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { projectFireStore } from "../firebase/config";
+import { useEffect , useState } from "react";
+import { projectFirestore } from "../firebase/config";
 
 export const useDocument = (collection, id) => {
   const [document, setDocument] = useState(null);
@@ -7,7 +7,7 @@ export const useDocument = (collection, id) => {
 
   //REALTIME DATA LISTENER FOR THE DOCUMENT...WE SET COLLECTION AND THE ID OF THE DOCUMENT IN THE DEPENDENCY ARRAY SO IF ANY OF THEM CHANGES USEEFFECT WILL LISTEN TO IT IN REALTIME
   useEffect(() => {
-    const ref = projectFireStore.collection(collection).doc(id); //REFERENCE TO THE DOCUMENT REQUESTED
+    const ref = projectFirestore.collection(collection).doc(id); //REFERENCE TO THE DOCUMENT REQUESTED
 
     //WE FIRE THIS CALLBACK FUNTION EVERYTIME WE GET A SNAPSHOT OF THE REQUESTED DOCUMENT FROM THE FIREBASE
     const unsubscribe = ref.onSnapshot(

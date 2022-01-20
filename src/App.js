@@ -33,7 +33,7 @@ function App() {
                 {!user && <Redirect to="/login" />}
                 {user && <Create />}
               </Route>
-              <Route path="/project/:id">
+              <Route path="/projects/:id">
                 {!user && <Redirect to="/login" />}
                 {user && <Project />}
               </Route>
@@ -42,12 +42,12 @@ function App() {
                 {!user && <Login />}
               </Route>
               <Route path="/signup">
-              {user && <Redirect to="/" />}
+                {user && user.displayName && <Redirect to="/" />}
                 {!user && <Signup />}
               </Route>
             </Switch>
           </div>
-          {user && <OnlineUsers/>}
+          {user && <OnlineUsers />}
         </BrowserRouter>
       )}
     </div>
