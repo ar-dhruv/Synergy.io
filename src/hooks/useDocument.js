@@ -1,4 +1,4 @@
-import { useEffect , useState } from "react";
+import { useEffect, useState } from "react";
 import { projectFirestore } from "../firebase/config";
 
 export const useDocument = (collection, id) => {
@@ -12,8 +12,12 @@ export const useDocument = (collection, id) => {
     //WE FIRE THIS CALLBACK FUNTION EVERYTIME WE GET A SNAPSHOT OF THE REQUESTED DOCUMENT FROM THE FIREBASE
     const unsubscribe = ref.onSnapshot(
       (snapshot) => {
-        setDocument({ ...snapshot.data(), id: snapshot.id });
-        setError(null);
+        if (snapshot.data()) {
+          setDocument({ ...snapshot.data(), id: snapshot.id });
+          setError(null);
+        } else {
+          setError("No such Document exists");
+        }
       },
       (error) => {
         console.log(error.message);
