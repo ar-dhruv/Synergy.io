@@ -32,6 +32,14 @@ const firestoreReducer = (state, action) => {
         document: null,
         success: true,
         error: null,
+      }; 
+
+    case "UPDATED_DOCUMENT":
+      return {
+        isPending: false,
+        document: action.payload,
+        success: true,
+        error: null,
       };
 
     case "ERROR": //ERROR STATE , SETTING ERROR TO BE ACTION.PAYLOAD i.e THE ERROR MEASSAGE IN THE CATCH BLOCK
@@ -92,10 +100,27 @@ export const useFirestore = (collection) => {
     }
   };
 
+  //UPDATE DOCUMENT
+  const updateDocument = async (id, updates) => {
+    dispatch({ type: "IS_PENDING" });
+
+    try {
+      const updatedDocument = await ref.doc(id).update(updates);
+      dispatchIFNotCancelled({
+        type: "UPDATED_DOCUMENT",
+        payload: updatedDocument,
+      });
+      return updatedDocument;
+    } catch (err) {
+      dispatchIFNotCancelled({ type: "ERROR", payload: err.message });
+      return null;
+    }
+  };
+
   //CLEAN-UP FUNCTION
   useEffect(() => {
     return () => setIsCancelled(true);
   }, []);
 
-  return { addDocument, deleteDocument, response };
+  return { addDocument, deleteDocument, updateDocument, response };
 };
