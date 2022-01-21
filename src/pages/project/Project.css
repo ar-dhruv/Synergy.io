@@ -40,3 +40,13 @@
   width: 50px;
   height: 50px;
 }
+
+/* PROJECT COMMENTS */
+
+.project-commments label {
+  margin-bottom: 0px;
+}
+.project-commments textarea {
+  min-height: 40px;
+  font-size: 1.5em;
+}
