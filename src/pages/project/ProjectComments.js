@@ -29,7 +29,7 @@ export default function ProjectComments({ project }) {
   };
 
   return (
-    <div className="project-coments">
+    <div className="project-comments">
       <h4>Project Comments</h4>
 
       <ul>
