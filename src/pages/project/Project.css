@@ -54,8 +54,8 @@
   margin-bottom: 60px;
 }
 /* COMMENT LIST */
-.project-comments h4 {
-  color: var(--heading-color);
+.project-comments h2 {
+  color: #8d69f1
 }
 .project-comments li {
   padding: 16px;

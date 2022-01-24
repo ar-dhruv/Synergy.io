@@ -30,7 +30,7 @@ export default function ProjectComments({ project }) {
 
   return (
     <div className="project-comments">
-      <h4>Project Comments</h4>
+      <h2>Messages</h2>
 
       <ul>
         {project.comments.length > 0 &&
