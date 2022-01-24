@@ -46,9 +46,12 @@
 .project-commments label {
   margin-bottom: 0px;
 }
-.project-commments textarea {
+.project-commments-textarea {
   min-height: 40px;
   font-size: 1.5em;
+}
+.add-comment{
+  margin-bottom: 60px;
 }
 /* COMMENT LIST */
 .project-comments h4 {
@@ -60,8 +63,8 @@
   border-top-left-radius: 0;
   /* border: 1px solid #8d69f1; */
   margin-top: 20px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
-  background: rgba(141, 105, 241, 0.25);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  background: rgba(141, 105, 241, 0.2);
 }
 .comment-author {
   display: flex;
