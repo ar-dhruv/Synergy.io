@@ -43,12 +43,16 @@
 
 /* PROJECT COMMENTS */
 
-.project-commments label {
+.project-comments label {
   margin-bottom: 0px;
 }
-.project-commments-textarea {
+.project-comments-textarea {
   min-height: 40px;
   font-size: 1.5em;
+}
+
+.project-comments{
+  transform: translateY(-70px);
 }
 .add-comment{
   margin-bottom: 60px;
