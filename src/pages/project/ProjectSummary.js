@@ -16,10 +16,10 @@ export default function ProjectSummary({ project }) {
   return (
     <div>
       <div className="project-summary">
-        <h2 className="page-title">{project.name}</h2>
+        <h2 className="project-summary-page-title">{project.name}</h2>
         <p>By {project.createdBy.displayName}</p>
         <p className="due-date">
-          Project due by {project.dueDate.toDate().toDateString()}
+          due by : {project.dueDate.toDate().toDateString()}
         </p>
         <p className="details">{project.details}</p>
         <h4>Project is assigned to :</h4>
