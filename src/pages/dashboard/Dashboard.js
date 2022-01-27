@@ -1,5 +1,6 @@
 import ProjectList from "../../components/ProjectList";
 import { useCollection } from "../../hooks/useCollection";
+import ProjectFilter from "./ProjectFilter";
 
 //STYLES
 import "./Dashboard.css";
@@ -10,6 +11,7 @@ export default function Dashboard() {
     <div>
       <h2 className="dashboard-title">Dashboard</h2>
       {error && <p className="error">{error}</p>}
+      {documents && <ProjectFilter/>}
       {documents && <ProjectList projects = {documents}/>}
     </div>
   );
