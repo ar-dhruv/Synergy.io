@@ -23,7 +23,7 @@ export default function Signup() {
   const handleFileChange = (e) => {
     setThumbnail(null);
     let selected = e.target.files[0]; //.FILES RETURNS AN ARRAY OF ALL THE SELECTED FILES BUT WE ALLOW ONLY ONE PICTURE FOR THE DP SO FILES[0]
-    console.log(selected);
+    
 
     //ERROR IF YOU DONT SELECT A DISPLAY PICTURE
     if (!selected) {
@@ -46,7 +46,7 @@ export default function Signup() {
     //WE REACH HERE WHEN THERE IS NO ERROR i.e VALID IMAGE FILE
     setThumbnailError(null);
     setThumbnail(selected);
-    console.log("thumbnail updated");
+    
   };
 
   return (
